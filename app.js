@@ -43,14 +43,14 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/demouser", async (req, res) => {
-    let fakeUser = new User({
-        email: "mukesh@gmail.com",
-        username: "delta-student"
-    });
-    let registeredUser = await User.register(fakeUser, "helloworld");
-    res.send(registeredUser);         
-})
+// app.get("/demouser", async (req, res) => {
+//     let fakeUser = new User({
+//         email: "mukesh@gmail.com",
+//         username: "delta-student"
+//     });
+//     let registeredUser = await User.register(fakeUser, "helloworld");
+//     res.send(registeredUser);         
+// })
 
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
