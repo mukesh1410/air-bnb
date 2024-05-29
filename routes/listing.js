@@ -8,6 +8,8 @@ const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 
 const listingController = require("../controllers/listings.js");
 
+
+
 //Index Route
 router.get("/", wrapAsync(listingController.index));
 
@@ -32,6 +34,8 @@ router.put("/:id", isLoggedIn, isOwner, validateListing, wrapAsync(listingContro
 
 // Delete Route
 router.delete("/:id", isLoggedIn, isOwner, wrapAsync(listingController.deleteListing)
+
+
 );
 
 module.exports = router;
