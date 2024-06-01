@@ -9,11 +9,8 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        type: String,
-        default: "https://img.freepik.com/free-photo/sunset-time-tropical-beach-sea-with-coconut-palm-tree_74190-1075.jpg",
-        set: (v) => v === " "
-         ? "https://img.freepik.com/free-photo/sunset-time-tropical-beach-sea-with-coconut-palm-tree_74190-1075.jpg" 
-         : v,
+       url: String,
+       filename: String,
     }, 
     price: Number,                                                                                                       
     location: String,
@@ -32,7 +29,7 @@ const listingSchema = new Schema({
 
 listingSchema.post("findOneAndDelete", async (listing) => {
     if(listing) {
-        await Review.deleteMany({_id : {$in : listing.reviews}});
+        await Review.deleteMany({_id : {$in : listing.reviews} });
     }
 });
 
